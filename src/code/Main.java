@@ -5,6 +5,7 @@ import org.w3c.dom.Text;
 import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -15,13 +16,31 @@ public class Main {
         ArrayList<Integer> target = targetGenerator.RandomGenerator();
         ArrayList<ArrayList<Integer>> population = creatingPopulation.population();
 
-        FitnessScore ft = new FitnessScore();
-        ArrayList<Fitness> f = ft.CalculateFitness(population,target);
-        System.out.println();
-        for(Fitness x : f){
-            System.out.println(x.chromosome + "\t"  + x.matches);
-        }
+
+        ArrayList<Fitness> parent = FitnessScore.CalculateFitness(population, target);
 
 
+//        TODO : ROULETTE Implementation
+
+//        Fitness parent01 = Selection.RouletteWheel(parent);
+//        Fitness parent02 = Selection.RouletteWheel(parent);
+//        System.out.println();
+//        System.out.println(parent01.matches + "\t" + parent01.chromosome);
+//        System.out.println(parent02.matches + "\t" + parent02.chromosome);
+
+
+//        TODO : tournament selection
+//        Fitness parent01 = Selection.RouletteWheel(parent);
+//        Fitness parent02 = Selection.RouletteWheel(parent);
+//        System.out.println();
+//        System.out.println(parent01.chromosome + "\t" + parent01.matches);
+//        System.out.println(parent02.chromosome + "\t" + parent02.matches);
+
+//         TODO: Random selection
+//        Fitness parent01 = Selection.randomSelection(parent);
+//        Fitness parent02 = Selection.randomSelection(parent);
+//        System.out.println();
+//        System.out.println(parent01.chromosome + "\t" + parent01.matches);
+//        System.out.println(parent02.chromosome + "\t" + parent02.matches);
     }
 }

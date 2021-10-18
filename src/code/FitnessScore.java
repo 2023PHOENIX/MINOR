@@ -35,6 +35,7 @@ public class FitnessScore {
 
             ft.add(f);
         }
+
         return ft;
     }
 

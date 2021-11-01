@@ -6,12 +6,7 @@ import java.util.Random;
 
 public class Selection {
 
-    class SortByMatches implements Comparator<Fitness> {
 
-        public int compare(Fitness o1, Fitness o2) {
-            return o2.matches - o1.matches;
-        }
-    }
 
 
     static Fitness RouletteWheel(ArrayList<Fitness> parent) {
@@ -67,7 +62,7 @@ public class Selection {
     static Fitness randomSelection(ArrayList<Fitness> parent){
         Random rand = new Random();
 
-        int idx = rand.nextInt(parent.size());
+        int idx = rand.nextInt(parent.size() / 2);
 
         return parent.get(idx);
     }

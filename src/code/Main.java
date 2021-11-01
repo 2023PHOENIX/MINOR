@@ -14,12 +14,49 @@ public class Main {
 
 
         ArrayList<Integer> target = targetGenerator.RandomGenerator();
+
+
         ArrayList<ArrayList<Integer>> population = creatingPopulation.population();
 
 
-        ArrayList<Fitness> parent = FitnessScore.CalculateFitness(population, target);
 
 
+        int x = 0,cnt = 0;
+        for(x = 0; x<10;x++){
+
+
+
+        int generation = 0;
+        while(true){
+
+            ArrayList<Fitness> parent = FitnessScore.CalculateFitness(population, target);
+
+//            for(Fitness f : parent){
+//                System.out.println(f.chromosome  + "\t" + f.matches);
+//            }
+//        base condition
+            if(parent.get(0).matches == target.size()){
+                cnt++;
+                break;
+            }
+
+            ArrayList<ArrayList<Integer>> childrens = Breeding.childcreate(parent);
+            population = mutation.swapMutation(childrens);
+
+            generation++;
+            if(generation > 10000){
+                break;
+            }
+        }
+
+        }
+
+        System.out.println("get result " + cnt + " out of " + x);
+//
+
+//        for(ArrayList<Integer> x : childrens){
+//            System.out.println(x);
+//        }
 //        TODO : ROULETTE Implementation
 
 //        Fitness parent01 = Selection.RouletteWheel(parent);
@@ -42,5 +79,7 @@ public class Main {
 //        System.out.println();
 //        System.out.println(parent01.chromosome + "\t" + parent01.matches);
 //        System.out.println(parent02.chromosome + "\t" + parent02.matches);
+
+
     }
 }

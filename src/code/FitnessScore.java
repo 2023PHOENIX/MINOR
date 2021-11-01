@@ -1,6 +1,8 @@
 package code;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Objects;
 
 class Fitness {
@@ -12,6 +14,12 @@ class Fitness {
         this.chromosome = chromosome;
         this.matches = matches;
     }
+}
+class SortByMatches implements Comparator<Fitness> {
+
+        public int compare(Fitness o1, Fitness o2) {
+            return o2.matches - o1.matches;
+        }
 }
 public class FitnessScore {
 // TODO: convert it into constant
@@ -36,6 +44,7 @@ public class FitnessScore {
             ft.add(f);
         }
 
+        Collections.sort(ft, new SortByMatches());
         return ft;
     }
 

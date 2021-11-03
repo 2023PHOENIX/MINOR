@@ -6,7 +6,7 @@ import java.util.Random;
 public class Breeding {
 
     //    creating child
-    static ArrayList<ArrayList<Integer>> childcreate(ArrayList<Fitness> parent) {
+    static ArrayList<ArrayList<Integer>> childcreate(ArrayList<Fitness> parent,int choice) {
 
         ArrayList<ArrayList<Integer>> children = new ArrayList<>();
 
@@ -17,7 +17,17 @@ public class Breeding {
 //            System.out.println("parent\t" + p1.chromosome);
 //            System.out.println("parent\t" + p2.chromosome);
 //            System.out.print("children->");
+
+            if(choice==1){
+                children.add(OnePointCrossOver(p1,p2));
+            }else if(choice == 2){
             children.add(MultiPointCrossOver(p1, p2));
+
+            }else if(choice == 3){
+                children.add(UniformCrossOver(p1,p2));
+            }else{
+                System.out.println("Enter valid choice...");
+            }
         }
 
         return children;
@@ -34,7 +44,6 @@ public class Breeding {
                 child.add(f2.chromosome.get(i));
             }
         }
-        System.out.println(child);
         return child;
     }
 
@@ -53,7 +62,6 @@ public class Breeding {
                 child.add(p2.chromosome.get(i));
             }
         }
-//        System.out.println(child);
 
         return child;
     }
@@ -63,7 +71,7 @@ public class Breeding {
 
         for(int i = 0; i<p1.chromosome.size();i++){
             Random rn = new Random();
-            Boolean Toss = rn.nextBoolean();
+            boolean Toss = rn.nextBoolean();
 
 
             if(Toss){
@@ -73,7 +81,6 @@ public class Breeding {
             }
         }
 
-//        System.out.println(child);
 
         return child;
     }

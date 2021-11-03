@@ -6,79 +6,61 @@ import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-
+        Scanner sc = new Scanner(System.in);
         ArrayList<Integer> target = targetGenerator.RandomGenerator();
-
-
         ArrayList<ArrayList<Integer>> population = creatingPopulation.population();
 
 
+        System.out.println("calculating fitness for random population");
 
 
-        int x = 0,cnt = 0;
-        for(x = 0; x<10;x++){
+        for(int x = 0; x<10;x++) {
 
 
+            System.out.println("\nChoose your Breeding process");
+            System.out.println("1. One point CrossOver");
+            System.out.println("2. Multi Point CrossOver");
+            System.out.println("3. Uniform CrossOver");
+            int breeding = sc.nextInt();
+            System.out.println("Enter your mutation process");
+            System.out.println("1. onePointMutation");
+            System.out.println("2. swapMutation");
+            int mutation = sc.nextInt();
 
-        int generation = 0;
-        while(true){
+            int generation = 0;
+            ArrayList<ArrayList<Integer>> p = population;
+            while (true) {
+                ArrayList<Fitness> parentFitness = FitnessScore.CalculateFitness(p, target);
 
-            ArrayList<Fitness> parent = FitnessScore.CalculateFitness(population, target);
 
-//            for(Fitness f : parent){
-//                System.out.println(f.chromosome  + "\t" + f.matches);
-//            }
-//        base condition
-            if(parent.get(0).matches == target.size()){
-                cnt++;
-                break;
-            }
+                if (parentFitness.get(0).matches == target.size()) {
+                    System.out.println("get the desired output");
+                    System.out.println(generation);
+                    break;
+                }
 
-            ArrayList<ArrayList<Integer>> childrens = Breeding.childcreate(parent);
-            population = mutation.swapMutation(childrens);
 
-            generation++;
-            if(generation > 10000){
-                break;
+                ArrayList<ArrayList<Integer>> children = Breeding.childcreate(parentFitness, breeding);
+                p = Mutation.mutationChoice(children, mutation);
+
+                generation++;
+                if (generation > 1000) {
+                    System.out.println(generation);
+                    System.out.println("Unable to get desired result");
+                    break;
+                }
             }
         }
 
-        }
-
-        System.out.println("get result " + cnt + " out of " + x);
-//
-
-//        for(ArrayList<Integer> x : childrens){
-//            System.out.println(x);
-//        }
-//        TODO : ROULETTE Implementation
-
-//        Fitness parent01 = Selection.RouletteWheel(parent);
-//        Fitness parent02 = Selection.RouletteWheel(parent);
-//        System.out.println();
-//        System.out.println(parent01.matches + "\t" + parent01.chromosome);
-//        System.out.println(parent02.matches + "\t" + parent02.chromosome);
 
 
-//        TODO : tournament selection
-//        Fitness parent01 = Selection.RouletteWheel(parent);
-//        Fitness parent02 = Selection.RouletteWheel(parent);
-//        System.out.println();
-//        System.out.println(parent01.chromosome + "\t" + parent01.matches);
-//        System.out.println(parent02.chromosome + "\t" + parent02.matches);
-
-//         TODO: Random selection
-//        Fitness parent01 = Selection.randomSelection(parent);
-//        Fitness parent02 = Selection.randomSelection(parent);
-//        System.out.println();
-//        System.out.println(parent01.chromosome + "\t" + parent01.matches);
-//        System.out.println(parent02.chromosome + "\t" + parent02.matches);
 
 
     }

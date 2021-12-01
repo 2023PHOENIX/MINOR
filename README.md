@@ -31,6 +31,9 @@ Genetic Algorithm can deal with various types of optimizations, whether the obje
     • https://www.researchgate.net/publication/309770246_A_Study_on_Genetic_Algorithm_and_its_Applications
 
 
+## METHODOLOGY 
+
+![image](https://user-images.githubusercontent.com/35265516/144186327-ac73b1ef-449c-4edc-a6b8-456358cc4603.png)
 
 
 ## PROJECT DESCRIPTION
@@ -40,7 +43,12 @@ Genetic Algorithm can deal with various types of optimizations, whether the obje
 
 Genetic Algorithms are a part of evolutionary computing that is a rapidly growing area of AI (Artificial Intelligence). Genetic Algorithms are being widely used because of its robust nature that provide optimization over large space state (set of nodes representing each state of the problem). The process of biological evolution based on Charles Darwin’s theory of natural selection, where fitter individuals are more likely to pass on their genes to the next generation, inspires genetic Algorithms. Genetic algorithm uses the crossover and recombination, mutation, and selection in the study of adaptive and artificial systems. These genetic operators form the essential part of the genetic algorithm as a problem-solving strategy.
 
+![image](https://user-images.githubusercontent.com/35265516/144185951-20d8315b-6dc9-4645-9250-404724cb420c.png)
+
+
 Genetic Algorithms are categorized as global search heuristics. A genetic algorithm is a search technique used in computing to find true or approximate solutions to optimization and search problems. Genetic Algorithm uses a variety of operators during the search process. These operators are encoding schemes, crossover, mutation, and selection.
+
+![1_dR4mHdPqvsEfoMluiYGcVg](https://user-images.githubusercontent.com/35265516/144186059-6489e132-bc13-49aa-8c24-726c7042350d.gif)
 
 Working of Genetic Algorithm:
 *
@@ -66,7 +74,7 @@ The initial stage in genetic algorithms is to initialize populations. At this st
 
 A fitness function is first derived to be used in successive genetic operations. Fitness in biological sense is a quality value which is a measure of the reproductive efficiency of chromosomes. In genetic algorithm, fitness is used to allocate reproductive traits to the individuals in the population and thus act as some measure of goodness to be maximized. This means that individuals with higher fitness value will have higher probability of being selected as candidates for further examination.
 
-###Selection/Elitism 
+### Selection/Elitism 
 
 (We have used elitism instead of the standard selection process)
 Here we arranged the parents on the basis of their fitness score and took the best parents from it.
@@ -77,10 +85,14 @@ Many crossover operators exist in the GA literature. One site crossover and two 
     • Mutation
 Almost the same as a crossover, mutations are not always done due to the probability of mutations. The probability of mutation common being used is 0.1. As with crossover probabilities, there are no definite provisions regarding the value of mutation probabilities.
 
+![image](https://user-images.githubusercontent.com/35265516/144186131-930218cb-b979-4233-8b5e-0a9675f0d22a.png)
+
+
     Application of these operators on the current population creates a new population. This new population is used to generate subsequent populations and so on, yielding solutions that are closer to the optimum solution. The values of the objective function of the individuals of the new population are again determined by decoding the strings. These values express the fitness of the solutions of the new generations. This completes one cycle of genetic algorithm called a generation. In each generation if the solution is improved, it is stored as the best solution. This is repeated till convergence.
 
 Data Structures:
 The primitive data structures that are being used in the project include arrays.
+
 
 
 

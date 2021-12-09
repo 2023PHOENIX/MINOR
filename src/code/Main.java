@@ -32,6 +32,8 @@ public class Main {
             System.out.println("Enter your mutation process");
             System.out.println("1. onePointMutation");
             System.out.println("2. swapMutation");
+            System.out.println("3. Control Genetic mutation.");
+            System.out.println("4. Control Genetic mutation 2.");
             int mutation = sc.nextInt();
 
             int generation = 0;
@@ -48,10 +50,10 @@ public class Main {
 
 
                 ArrayList<ArrayList<Integer>> children = Breeding.childcreate(parentFitness, breeding);
-                p = Mutation.mutationChoice(children, mutation);
+                p = Mutation.mutationChoice(children,target, mutation);
 
                 generation++;
-                if (generation > 1000) {
+                if (generation > 100000) {
                     System.out.println(generation);
                     System.out.println("Unable to get desired result");
                     break;

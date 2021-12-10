@@ -33,7 +33,7 @@ Genetic Algorithm can deal with various types of optimizations, whether the obje
 
 ## METHODOLOGY 
 
-![image](https://user-images.githubusercontent.com/35265516/144186327-ac73b1ef-449c-4edc-a6b8-456358cc4603.png)
+![image]![image](https://user-images.githubusercontent.com/35265516/145546656-03d65bb2-eb5f-4806-81b0-bffe0e1e66e8.png)
 
 
 ## PROJECT DESCRIPTION
